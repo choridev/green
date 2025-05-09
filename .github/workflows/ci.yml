@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+          xcodebuild -version
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+      
+      - name: Install Bundler
+        run: gem install bundler
+      
+      - name: Bundle Install
+        run: bundle install
+      
+      - name: Install CocoaPods Dependencies
+        run: pod install --repo-update
+        
+      - name: Set Permissions for DerivedData
+        run: sudo chmod -R 777 ~/Library/Developer/Xcode/DerivedData
+      
+      - name: Install Fastlane Dependencies
+        run: bundle exec fastlane install_dependencies
+      
+      - name: Set up Firebase ADC
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+      
+      - name: Run Tests
+        run: bundle exec fastlane test
+      
+      - name: Build App
+        run: bundle exec fastlane build
+      
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.coverage.swift.reportsPaths=./fastlane/report/codecov/green.profdata
+      
+      - name: Upload to Firebase App Distribution
+        run: bundle exec fastlane distribute
+        env:
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}

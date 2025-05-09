@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		074687842DCDF0B3003B763D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 074687832DCDF0B0003B763D /* Gemfile */; };
+		0746878C2DCDF348003B763D /* sonar-project.properties in Resources */ = {isa = PBXBuildFile; fileRef = 0746878B2DCDF346003B763D /* sonar-project.properties */; };
+		0746878E2DCE0776003B763D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 0746878D2DCE0772003B763D /* Podfile */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		074687612DCDEE04003B763D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,9 @@
 		0746874A2DCDEE02003B763D /* green.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = green.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		074687602DCDEE04003B763D /* greenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = greenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746876A2DCDEE04003B763D /* greenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = greenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		074687832DCDF0B0003B763D /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		0746878B2DCDF346003B763D /* sonar-project.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = "sonar-project.properties"; sourceTree = "<group>"; };
+		0746878D2DCE0772003B763D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -56,6 +65,16 @@
 		0746876D2DCDEE04003B763D /* greenUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = greenUITests;
+			sourceTree = "<group>";
+		};
+		0746877E2DCDEECB003B763D /* .github */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = .github;
+			sourceTree = "<group>";
+		};
+		074687862DCDF1FE003B763D /* fastlane */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = fastlane;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,6 +107,11 @@
 		074687412DCDEE02003B763D = {
 			isa = PBXGroup;
 			children = (
+				0746878D2DCE0772003B763D /* Podfile */,
+				0746878B2DCDF346003B763D /* sonar-project.properties */,
+				074687862DCDF1FE003B763D /* fastlane */,
+				074687832DCDF0B0003B763D /* Gemfile */,
+				0746877E2DCDEECB003B763D /* .github */,
 				0746874C2DCDEE02003B763D /* green */,
 				074687632DCDEE04003B763D /* greenTests */,
 				0746876D2DCDEE04003B763D /* greenUITests */,
@@ -122,6 +146,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				0746874C2DCDEE02003B763D /* green */,
+				0746877E2DCDEECB003B763D /* .github */,
+				074687862DCDF1FE003B763D /* fastlane */,
 			);
 			name = green;
 			packageProductDependencies = (
@@ -225,6 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0746878C2DCDF348003B763D /* sonar-project.properties in Resources */,
+				0746878E2DCE0776003B763D /* Podfile in Resources */,
+				074687842DCDF0B3003B763D /* Gemfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +325,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +353,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

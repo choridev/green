@@ -1,0 +1,36 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Install project dependencies"
+  lane :install_dependencies do
+    cocoapods
+  end
+
+  desc "Run unit and UI tests"
+  lane :test do
+    scan(
+      scheme: "green", # Change to your scheme's name
+      destination: "generic/platform=iOS Simulator,OS=18.0",
+      clean: true,
+      code_coverage: true,
+      output_directory: "./fastlane/report"
+    )
+  end
+
+  desc "Build the iOS app for testing"
+  lane :build do
+    build_ios_app(
+      scheme: "green", # Change to your scheme's name
+      clean: true,
+      output_name: "green", # Change to your app's name
+      output_path: "build"
+    )
+  end
+
+  desc "Distribute beta build to Firebase App Distribution"
+  lane :distribute do
+    firebase_app_distribution(
+      app: ENV["FIREBASE_APP_ID"]
+    )
+  end
+end
